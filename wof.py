@@ -12,7 +12,7 @@ class Player:  # create the player class
         self.name = name
         self.score = 0  # auto initialize score attribute to zero for every player instance
 
-    def update_score(self, num):  # simple method allowing for score to be updated
+    def update_score(self, num):  # method allowing for score to be updated
         if num >= 0:
             self.score += num
         else:
@@ -63,8 +63,7 @@ $$$$  _$$$$ |$$ |  $$ |$$$$$$$$ |$$$$$$$$ |$$ |      $$ |  $$ |$$  _|          $
 $$$  / \$$$ |$$ |  $$ |$$   ____|$$   ____|$$ |      $$ |  $$ |$$ |            $$ |   $$ |  $$ |$$ |      $$ |$$\$$ |  $$ |$$ |  $$ |$$   ____|
 $$  /   \$$ |$$ |  $$ |\$$$$$$$\ \$$$$$$$\ $$ |       $$$$$$  |$$ |            $$ |   \$$$$$$  |$$ |      \$$$$  \$$$$$$  |$$ |  $$ |\$$$$$$$\ 
 \__/     \__|\__|  \__| \_______| \_______|\__|       \______/ \__|            \__|    \______/ \__|       \____/ \______/ \__|  \__| \_______|
-                                                                                                                                               
-                                                                                                                                               
+                                                                                                                                                                                                                                                                                             
                                                                                                                                                
 """)
     players_list = player_names()
@@ -82,7 +81,7 @@ $$  /   \$$ |$$ |  $$ |\$$$$$$$\ \$$$$$$$\ $$ |       $$$$$$  |$$ |            $
         word_selection2 = word_selection  # this is for the full guess
         # below is the game word display with _ representing each corresponding character
         display_word = ["_"] * len(word_selection)
-        game_words.remove(word_selection)  # this removes word from the games_word list
+        game_words.remove(word_selection)  # removes word from the games_word list
         if " " in word_selection:  # flipping the empty spaces in a word (like in real wheel of fortune)
             fix_space = word_selection.index(" ")
             display_word[fix_space] = " "
@@ -127,19 +126,19 @@ $$  /   \$$ |$$ |  $$ |\$$$$$$$\ \$$$$$$$\ $$ |       $$$$$$  |$$ |            $
                                 print("can only guess one letter")
                         if guess in word_selection:
                             print("correct guess!!!!")
-                            # below we flip the word by using for loop and changing the display
+                            # below - flip the word by using for loop and changing the display
                             for index, value in enumerate(word_selection):
                                 if guess == value:
                                     player.update_score(spin_value)
                                     display_word[index] = value
-                        # below we replace the first instance of the guess to allow flipping the other instances
+                        # below - replace the first instance of the guess to allow flipping the other instances
                                     word_selection.replace(value, "!", 1)
                         else:
                             print("Wrong guess")
                             break  # breaks to next player
 
     print()
-    winner_dict = {}  # here we create a dictionary to calculate player scores and the winner
+    winner_dict = {}  # create a dictionary to calculate player scores and the winner
     for i in players_list:
         print(f"{i.name}'s bank is ${i.score}")
         winner_dict[i.name] = i.score  # appending the dictionary
@@ -153,7 +152,7 @@ $$  /   \$$ |$$ |  $$ |\$$$$$$$\ \$$$$$$$\ $$ |       $$$$$$  |$$ |            $
     prize = random.choice(winner_prizes)
     with open("bonuswords.csv", "r") as f:  # open bonus round riddles
         reader = csv.reader(f)
-        list_of_bonus_riddles = [i for i in reader]  # we must put riddles in list
+        list_of_bonus_riddles = [i for i in reader]  # put riddles in list
 
     riddle = random.choice(list_of_bonus_riddles)  # select riddle (answer at index 0, riddle at index 1)
 
@@ -175,7 +174,4 @@ $$  /   \$$ |$$ |  $$ |\$$$$$$$\ \$$$$$$$\ $$ |       $$$$$$  |$$ |            $
 
 if __name__ == "__main__":
     main()
-
-# art
-
-
+    

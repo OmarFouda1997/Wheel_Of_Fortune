@@ -74,10 +74,9 @@ $$  /   \$$ |$$ |  $$ |\$$$$$$$\ \$$$$$$$\ $$ |       $$$$$$  |$$ |            $
 
     category = select_category()  # calling category function
     random_list = openfile(category)  # passing category into openfile function
-    game_words = random.sample(random_list, 1)  # generates the 3 words/rounds of the game
+    game_words = random.sample(random_list, 3)  # generates the 3 words/rounds of the game
     while game_words:  # while words still reside in game_words list loop will run
         word_selection = random.choice(game_words)  # this is the word of the game/round
-        print(word_selection)
         word_selection2 = word_selection  # this is for the full guess
         # below is the game word display with _ representing each corresponding character
         display_word = ["_"] * len(word_selection)
